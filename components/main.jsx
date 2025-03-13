@@ -29,7 +29,7 @@ export function Main() {
     >
       <View
         style={{
-          paddingBottom: 10,
+          paddingVertical: 5,
           flexDirection: "row",
           alignItems: "center",
           gap: 10,
