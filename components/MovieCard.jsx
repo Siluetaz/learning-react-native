@@ -1,13 +1,21 @@
 import React, { useEffect, useRef } from "react";
 import { Animated, Image, StyleSheet, Text, View } from "react-native";
+import Score from "./Score";
 
 export function MovieCard({ movie }) {
   return (
-    <View key={movie.slug} style={styles.card}>
+    <View
+      key={movie.slug}
+      className="flex-row bg-slate-500/10 p-4 rounded-xl gap-4 mb-10"
+    >
       <Image source={{ uri: movie.image }} style={styles.image} />
-      <Text style={styles.score}>{movie.score}</Text>
-      <Text style={styles.title}>{movie.title}</Text>
-      <Text style={styles.description}>{movie.description}</Text>
+      <View className="flex-col gap-3">
+        <Text className={"text-xl font-bold text-white"}>{movie.title}</Text>
+        <Score score={movie.score} maxScore={100} />
+        <Text className={"text-white flex-shrink"}>
+          {movie.description.slice(0, 100)}...
+        </Text>
+      </View>
     </View>
   );
 }
@@ -31,22 +39,5 @@ export function AnimatedMovieCard({ movie, index }) {
 }
 
 const styles = StyleSheet.create({
-  card: { marginBottom: 20 },
   image: { width: 107, height: 147, borderRadius: 10 },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
-    marginBottom: 10,
-    color: "white",
-  },
-  description: {
-    fontSize: 16,
-    color: "#eee",
-  },
-  score: {
-    fontSize: 20,
-    fontWeight: "bold",
-    color: "green",
-    marginTop: 5,
-  },
 });

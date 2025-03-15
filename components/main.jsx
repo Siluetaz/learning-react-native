@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { getLatestMovies } from "../lib/themoviedb";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import LogoIcon from "./Icons/LogoIcon";
-import { AnimatedMovieCard } from "./GameCard";
+import { AnimatedMovieCard } from "./MovieCard";
 
 export function Main() {
   const [movies, setMovies] = useState([]);
